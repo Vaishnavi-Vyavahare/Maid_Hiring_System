@@ -1,0 +1,90 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Register" as page_title %}
+{% trans "Maid Hiring System" as site_title %}
+{{ page_title }} - {{ site_title }}
+{% endblock %}
+
+{% block content %}
+{% trans "Create Account" as hero_title %}
+{% trans "Join our community today" as hero_subtitle %}
+{% trans "Full Name" as label_name %}
+{% trans "Email Address" as label_email %}
+{% trans "Phone Number" as label_phone %}
+{% trans "Select Role" as label_role %}
+{% trans "Customer (Hire a Maid)" as opt_customer %}
+{% trans "Maid (Find Work)" as opt_maid %}
+{% trans "Password" as label_password %}
+{% trans "Confirm Password" as label_confirm %}
+{% trans "Register Now" as btn_register %}
+{% trans "Already have an account?" as text_already_account %}
+{% trans "Sign In" as btn_signin %}
+
+<section class="py-5" style="background: linear-gradient(135deg, #f0f4f8 0%, #e1e9f1 100%); min-height: 80vh;">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card border-0 shadow-lg" style="border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold" style="color: var(--primary-indigo);">{{ hero_title }}</h2>
+                            <p class="text-muted">{{ hero_subtitle }}</p>
+                        </div>
+
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">{{ label_name }}</label>
+                                <input type="text" name="full_name" class="form-control" placeholder="John Doe" required
+                                    style="border-radius: 10px; padding: 12px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">{{ label_email }}</label>
+                                <input type="email" name="email" class="form-control" placeholder="john@example.com"
+                                    required style="border-radius: 10px; padding: 12px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">{{ label_phone }}</label>
+                                <input type="tel" name="phone_number" class="form-control" placeholder="+91 1234567890"
+                                    required style="border-radius: 10px; padding: 12px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">{{ label_role }}</label>
+                                <select name="role" class="form-select" required
+                                    style="border-radius: 10px; padding: 12px;">
+                                    <option value="customer">{{ opt_customer }}</option>
+                                    <option value="maid">{{ opt_maid }}</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">{{ label_password }}</label>
+                                <input type="password" name="password" class="form-control" placeholder="••••••••"
+                                    required style="border-radius: 10px; padding: 12px;">
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold small">{{ label_confirm }}</label>
+                                <input type="password" name="confirm_password" class="form-control"
+                                    placeholder="••••••••" required style="border-radius: 10px; padding: 12px;">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary-soft w-100 py-3 fw-bold mb-3"
+                                style="border-radius: 10px; font-size: 1.1rem;">
+                                {{ btn_register }}
+                            </button>
+
+                            <div class="text-center mt-4">
+                                <p class="mb-0 text-muted">{{ text_already_account }}
+                                    <a href="{% url 'login' %}" class="fw-bold text-decoration-none"
+                                        style="color: var(--primary-soft-blue);">{{ btn_signin }}</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

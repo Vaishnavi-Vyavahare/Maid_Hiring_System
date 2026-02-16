@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# Node
+node_modules/
+package-lock.json
+
+# Mac
+.DS_Store

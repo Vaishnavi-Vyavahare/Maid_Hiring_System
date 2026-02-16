@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "User Profile" as page_title %}
+{% trans "Admin Dashboard" as site_title %}
+{{ page_title }} - {{ site_title }}
+{% endblock %}
+
+{% block content %}
+{% trans "Email Address" as label_email %}
+{% trans "Mobile Number" as label_mobile %}
+{% trans "Location" as label_location %}
+{% trans "Not Provided" as txt_not_provided %}
+{% trans "Back to Dashboard" as btn_back %}
+
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg p-4" style="border-radius: 20px;">
+                    <div class="text-center mb-4">
+                        <div class="bg-primary-soft text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                            style="width: 80px; height: 80px; font-size: 2rem;">
+                            {{ target_user.display_initial }}
+                        </div>
+                        <h3 class="fw-bold text-dark">
+                            {{ target_user.display_name }}
+                        </h3>
+                        <span class="badge bg-secondary rounded-pill px-3">
+                            {{ target_user.profile.role|capfirst|default:"User" }}
+                        </span>
+                    </div>
+
+                    <div class="p-3 bg-light rounded-3 mb-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="small text-muted d-block">{{ label_email }}</label>
+                                <span class="fw-bold">{{ target_user.email }}</span>
+                            </div>
+                            <hr class="my-2 opacity-10">
+                            <div class="col-12">
+                                <label class="small text-muted d-block">{{ label_mobile }}</label>
+                                <span class="fw-bold">
+                                    {% if target_user.profile.phone_number %}
+                                    {{ target_user.profile.phone_number }}
+                                    {% elif target_user.maid_profile.mobile_number %}
+                                    {{ target_user.maid_profile.mobile_number }}
+                                    {% else %}
+                                    {{ txt_not_provided }}
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <hr class="my-2 opacity-10">
+                            <div class="col-12">
+                                <label class="small text-muted d-block">{{ label_location }}</label>
+                                <span class="fw-bold">
+                                    {% if target_user.profile.location %}
+                                    {{ target_user.profile.location }}
+                                    {% elif target_user.maid_profile.location %}
+                                    {{ target_user.maid_profile.location }}
+                                    {% else %}
+                                    {{ txt_not_provided }}
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid">
+                        <a href="{% url 'admin_dashboard' %}" class="btn btn-outline-soft py-3 fw-bold rounded-pill">
+                            {{ btn_back }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .bg-primary-soft {
+        background-color: #e7f1ff;
+    }
+</style>
+{% endblock %}

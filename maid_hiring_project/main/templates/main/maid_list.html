@@ -1,0 +1,208 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Hire a Maid" as page_title %}
+{% trans "Maid Hiring System" as site_title %}
+{{ page_title }} - {{ site_title }}
+{% endblock %}
+
+{% block content %}
+{% trans "Find Your Perfect Help" as hero_title %}
+{% trans "Browse our verified network of skilled housemaids ready to help you." as hero_subtitle %}
+{% trans "Filters" as label_filters %}
+{% trans "Skill Expertise" as label_skills %}
+{% trans "All Skills" as opt_all_skills %}
+{% trans "Location" as label_location %}
+{% trans "e.g. Mumbai" as placeholder_location %}
+{% trans "Salary Range (₹)" as label_salary %}
+{% trans "Apply Filters" as btn_apply %}
+{% trans "Reset All" as btn_reset %}
+{% trans "Verified" as badge_verified %}
+{% trans "month" as label_month %}
+{% trans "Expertise" as label_expertise %}
+{% trans "Contact Support" as label_contact %}
+{% trans "View Profile" as btn_view %}
+{% trans "No Maids Match Your Filters" as empty_title %}
+{% trans "Try adjusting your filters or search criteria." as empty_subtitle %}
+{% trans "Clear All Filters" as btn_clear %}
+
+<!-- Hero Section -->
+<section class="py-5 bg-primary-indigo text-white shadow-sm">
+    <div class="container py-4 text-center">
+        <h1 class="fw-bold display-4 mb-3">{{ hero_title }}</h1>
+        <p class="lead opacity-75">{{ hero_subtitle }}</p>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- Filter Sidebar -->
+        <div class="col-lg-3">
+            <div class="card border-0 shadow-sm p-4 sticky-top" style="top: 100px; border-radius: 20px;">
+                <h5 class="fw-bold mb-4"><i class="fas fa-filter me-2 text-primary"></i>{{ label_filters }}</h5>
+
+                <form method="GET" action="{% url 'maid_list' %}">
+                    <!-- Skill Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-muted text-uppercase">{{ label_skills }}</label>
+                        <select name="skill" class="form-select shadow-none border-light bg-light">
+                            <option value="">{{ opt_all_skills }}</option>
+                            {% for skill in distinct_skills %}
+                            <option value="{{ skill }}">{{ skill }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Location Filter -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-muted text-uppercase">{{ label_location }}</label>
+                        <input type="text" name="location" class="form-control shadow-none border-light bg-light"
+                            placeholder="{{ placeholder_location }}" value="{{ current_filters.location|default:'' }}">
+                    </div>
+
+                    <!-- Salary Range -->
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-muted text-uppercase">{{ label_salary }}</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <input type="number" name="min_salary"
+                                    class="form-control shadow-none border-light bg-light" placeholder="Min"
+                                    value="{{ current_filters.min_salary|default:'' }}">
+                            </div>
+                            <div class="col-6">
+                                <input type="number" name="max_salary"
+                                    class="form-control shadow-none border-light bg-light" placeholder="Max"
+                                    value="{{ current_filters.max_salary|default:'' }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary py-2 fw-bold rounded-pill">{{ btn_apply }}</button>
+                        <a href="{% url 'maid_list' %}" class="btn btn-outline-soft py-2 fw-bold rounded-pill">{{ btn_reset }}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Maid Cards Grid -->
+        <div class="col-lg-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <span class="text-muted">
+                    {% blocktrans count count=maids.count %}
+                    {{ count }} verified professional found
+                    {% plural %}
+                    {{ count }} verified professionals found
+                    {% endblocktrans %}
+                </span>
+            </div>
+
+            <div class="row g-4">
+                {% for maid in maids %}
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm transition-all hover-lift"
+                        style="border-radius: 20px; overflow: hidden;">
+                        <div class="position-relative">
+                            <div class="bg-primary-soft p-5 text-center">
+                                <i
+                                    class="fas fa-user-circle fa-5x text-primary shadow-sm rounded-circle bg-white p-2"></i>
+                            </div>
+                            <div class="position-absolute top-0 end-0 p-3">
+                                <span
+                                    class="badge bg-success-soft text-success rounded-pill px-3 py-2 border border-success">
+                                    <i class="fas fa-check-circle me-1"></i> {{ badge_verified }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h5 class="fw-bold text-dark mb-1">{{ maid.name }}</h5>
+                                    <p class="text-muted small mb-0"><i class="fas fa-map-marker-alt me-1"></i> {{ maid.location }}</p>
+                                </div>
+                                <div class="text-end">
+                                    <span class="d-block fw-bold text-primary">₹{{ maid.expected_salary }}</span>
+                                    <small class="text-muted">/{{ label_month }}</small>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="small text-muted d-block mb-2">{{ label_expertise }}</label>
+                                <div class="d-flex flex-wrap gap-1">
+                                    {% for skill in maid.skills_list %}
+                                    <span class="badge bg-light text-dark fw-normal border">{{ skill }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="mb-4 p-3 bg-light rounded-3">
+                                <span class="small text-muted d-block">{{ label_contact }}</span>
+                                <span class="fw-bold text-dark"><i class="fas fa-phone-alt me-2 text-primary"></i>{{ maid.mobile_number }}</span>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'customer_maid_profile' maid.id %}"
+                                    class="btn btn-primary-soft py-2 fw-bold rounded-pill">
+                                    {{ btn_view }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center py-5">
+                    <div class="mb-4 text-muted opacity-25">
+                        <i class="fas fa-search-minus fa-5x"></i>
+                    </div>
+                    <h3>{{ empty_title }}</h3>
+                    <p class="text-muted">{{ empty_subtitle }}</p>
+                    <a href="{% url 'maid_list' %}" class="btn btn-primary-soft mt-3 rounded-pill px-4">{{ btn_clear
+                        }}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-primary-indigo {
+        background-color: #4e5d78;
+    }
+
+    .bg-primary-soft {
+        background-color: #f0f4f9;
+    }
+
+    .bg-success-soft {
+        background-color: #e6f9ed;
+    }
+
+    .btn-primary-soft {
+        background-color: #eef2ff;
+        color: #4f46e5;
+        border: 1px solid #e0e7ff;
+    }
+
+    .btn-primary-soft:hover {
+        background-color: #4f46e5;
+        color: white;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+    }
+
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+
+    .form-select,
+    .form-control {
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}

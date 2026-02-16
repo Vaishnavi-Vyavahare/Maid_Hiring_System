@@ -1,0 +1,202 @@
+﻿{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{{ maid.name }} - {% trans "Profile" %} - {% trans "Maid Hiring System" %}
+{% endblock title %}
+
+{% block content %}
+
+<section class="py-5 bg-light min-vh-100">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <!-- Profile Header -->
+                <div class="card border-0 shadow-sm mb-4" style="border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="bg-primary-soft p-4 rounded-circle me-4">
+                                <i class="fas fa-user-circle fa-4x text-primary"></i>
+                            </div>
+                            <div>
+                                <h2 class="fw-bold text-dark mb-1">{{ maid.name }}</h2>
+                                <p class="text-muted mb-0">
+                                    <i class="fas fa-map-marker-alt me-2"></i>{{ maid.location }}
+                                </p>
+                                <span class="badge bg-success-soft text-success rounded-pill px-3 py-2 mt-2">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    {% trans "Verified Professional" %}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 border-top pt-4">
+                            <div class="col-md-6 border-end">
+                                <label class="small text-muted text-uppercase fw-bold d-block mb-1">
+                                    {% trans "Expected Salary" %}
+                                </label>
+                                <h4 class="fw-bold text-primary mb-0">
+                                    ₹{{ maid.expected_salary }}
+                                    <small class="text-muted fs-6"> / {% trans "month" %}</small>
+                                </h4>
+                            </div>
+
+                            <div class="col-md-6 ps-md-4">
+                                <label class="small text-muted text-uppercase fw-bold d-block mb-1">
+                                    {% trans "Mobile Number" %}
+                                </label>
+                                <h4 class="fw-bold text-dark mb-0">
+                                    <i class="fas fa-phone-alt me-2 text-primary"></i>
+                                    {{ maid.mobile_number }}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Contact Section -->
+                <div class="card border-0 shadow-sm mb-4" style="border-radius: 20px;">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <label class="small text-muted text-uppercase fw-bold d-block mb-2">
+                                    {% trans "Email Address" %}
+                                </label>
+                                <h5 class="fw-bold text-dark mb-0">
+                                    <i class="fas fa-envelope me-2 text-primary"></i>
+                                    {{ maid.user.email }}
+                                </h5>
+                            </div>
+                            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                <!-- Old mailto link replaced with Modal Trigger -->
+                                <button type="button"
+                                    class="btn btn-primary btn-lg px-4 py-2 fw-bold rounded-pill shadow-sm"
+                                    data-bs-toggle="modal" data-bs-target="#emailModal" data-bs-subject="{% trans "
+                                    Inquiry for" %} {{ maid.name }}" data-bs-message="{% trans " I am interested in your
+                                    profile. Please let me know your availability." %}">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    {% trans "Send Email" %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Details -->
+                <div class="card border-0 shadow-sm" style="border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <h5 class="fw-bold mb-4">{% trans "Expertise & Skills" %}</h5>
+
+                        <div class="d-flex flex-wrap gap-2 mb-5">
+                            {% for skill in maid.skills_list %}
+                            <div class="p-3 border rounded-3 text-center bg-white" style="min-width: 120px;">
+                                <i class="fas fa-star text-warning mb-2"></i>
+                                <p class="mb-0 fw-bold small text-dark">{{ skill }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <hr class="my-5 opacity-10">
+
+                        <div class="d-grid gap-3">
+                            <button class="btn btn-primary btn-lg py-3 fw-bold rounded-pill shadow-sm"
+                                data-bs-toggle="modal" data-bs-target="#emailModal" data-bs-subject="{% trans " Hiring
+                                Inquiry for" %} {{ maid.name }}" data-bs-message="{% trans " I would like to proceed
+                                with hiring you. Please contact me to discuss further details." %}">
+                                {% trans "Proceed to Hire" %} {{ maid.first_name }}
+                            </button>
+
+                            <a href="{% url 'maid_list' %}"
+                                class="btn btn-outline-soft btn-lg py-3 fw-bold rounded-pill">
+                                <i class="fas fa-arrow-left me-2"></i>
+                                {% trans "Back to Listings" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <p class="text-muted small">
+                        <i class="fas fa-shield-alt me-1"></i>
+                        {% trans "Documents of this profile are verified by our team. For safety reasons, direct
+                        downloads are not available for customers." %}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .bg-primary-soft {
+        background-color: #f0f4f9;
+    }
+
+    .bg-success-soft {
+        background-color: #e6f9ed;
+    }
+
+    .btn-outline-soft {
+        border: 1px solid #e0e7ff;
+        color: #4f46e5;
+    }
+</style>
+
+<!-- Email Modal -->
+<div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="emailModalLabel">{% trans "Send Email to" %} {{ maid.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{% url 'send_email_to_maid' maid.id %}" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">{% trans "Subject" %}</label>
+                        <input type="text" class="form-control" id="subject" name="subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">{% trans "Message" %}</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+                    <button type="submit" class="btn btn-primary">{% trans "Send Email" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    var emailModal = document.getElementById('emailModal')
+    emailModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var subject = button.getAttribute('data-bs-subject')
+        var message = button.getAttribute('data-bs-message')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalSubjectInput = emailModal.querySelector('.modal-body input#subject')
+        var modalMessageInput = emailModal.querySelector('.modal-body textarea#message')
+
+        if (subject) {
+            modalSubjectInput.value = subject
+        }
+        if (message) {
+            modalMessageInput.value = message
+        }
+    })
+</script>
+{% endblock extra_js %}

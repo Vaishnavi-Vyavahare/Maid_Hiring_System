@@ -1,0 +1,114 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Admin Dashboard" as site_title %}
+{% trans title %} - {{ site_title }}
+{% endblock %}
+
+{% block content %}
+{% trans "Back to Dashboard" as btn_back %}
+{% trans "Name" as head_name %}
+{% trans "Email" as head_email %}
+{% trans "Mobile Number" as head_mobile %}
+{% trans "Action" as head_action %}
+{% trans "Not Provided" as txt_not_provided %}
+{% trans "View" as btn_view %}
+{% trans "View Profile" as btn_view_profile %}
+{% trans "No users found in this category." as txt_empty %}
+
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold mb-0" style="color: var(--primary-indigo);">
+                {% trans title %}
+            </h2>
+            <a href="{% url 'admin_dashboard' %}" class="btn btn-outline-soft">
+                {{ btn_back }}
+            </a>
+        </div>
+
+        <div class="card border-0 shadow-sm" style="border-radius: 15px;">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="px-4 py-3 border-0">{{ head_name }}</th>
+                                <th class="py-3 border-0">{{ head_email }}</th>
+                                <th class="py-3 border-0">{{ head_mobile }}</th>
+                                <th class="px-4 py-3 border-0 text-end">{{ head_action }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for u in users_list %}
+                            <tr>
+                                <td class="px-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary-soft text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                            style="width: 40px; height: 40px;">
+                                            {{ u.display_initial }}
+                                        </div>
+                                        <span class="fw-bold text-dark">
+                                            {{ u.display_name }}
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    {{ u.email }}
+                                </td>
+                                <td>
+                                    {% if u.profile.phone_number %}
+                                    {{ u.profile.phone_number }}
+                                    {% elif u.maid_profile.mobile_number %}
+                                    {{ u.maid_profile.mobile_number }}
+                                    {% else %}
+                                    {{ txt_not_provided }}
+                                    {% endif %}
+                                </td>
+                                <td class="px-4 text-end">
+                                    {% if category == 'unverified' %}
+                                    <a href="{% url 'admin_maid_detail' u.maid_profile.id %}"
+                                        class="btn btn-primary-soft btn-sm px-3 rounded-pill hvr-grow">
+                                        {{ btn_view }}
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'admin_user_profile' u.id %}"
+                                        class="btn btn-primary-soft btn-sm px-3 rounded-pill hvr-grow">
+                                        {{ btn_view_profile }}
+                                    </a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center py-5 text-muted">
+                                    {{ txt_empty }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .bg-primary-soft {
+        background-color: #e7f1ff;
+    }
+
+    .btn-primary-soft {
+        background-color: #e7f1ff;
+        color: #0d6efd;
+        border: none;
+    }
+
+    .btn-primary-soft:hover {
+        background-color: #0d6efd;
+        color: white;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Register as Maid" as page_title %}
+{% trans "Maid Hiring System" as site_title %}
+{{ page_title }} - {{ site_title }}
+{% endblock %}
+
+{% block content %}
+{% trans "Maid Registration Form" as form_title %}
+{% trans "Fill in your details to join our network of experts" as form_subtitle %}
+{% trans "Full Name" as label_name %}
+{% trans "Email Address (Read-only)" as label_email %}
+{% trans "Mobile Number" as label_mobile %}
+{% trans "Location" as label_location %}
+{% trans "Expected Monthly Salary (₹)" as label_salary %}
+{% trans "Skills & Expertise" as label_skills %}
+{% trans "Aadhaar Document (PDF/JPG/PNG)" as label_aadhaar %}
+{% trans "Police Verification (PDF/JPG/PNG)" as label_police %}
+{% trans "Submit Registration" as btn_submit %}
+
+<section class="py-5" style="background: linear-gradient(135deg, #f0f4f8 0%, #e1e9f1 100%); min-height: 85vh;">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg" style="border-radius: 20px;">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold" style="color: var(--primary-indigo);">{{ form_title }}</h2>
+                            <p class="text-muted">{{ form_subtitle }}</p>
+                            <div class="mx-auto mt-2"
+                                style="width: 60px; height: 3px; background-color: var(--primary-soft-blue);"></div>
+                        </div>
+
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="row g-4">
+                                <!-- Personal Info -->
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label fw-bold small">{{ label_name }}</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                    <div class="text-danger small">{{ form.name.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label fw-bold small">{{ label_email }}</label>
+                                    {{ form.email }}
+                                    {% if form.email.errors %}
+                                    <div class="text-danger small">{{ form.email.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label fw-bold small">{{ label_mobile }}</label>
+                                    {{ form.mobile_number }}
+                                    {% if form.mobile_number.errors %}
+                                    <div class="text-danger small">{{ form.mobile_number.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label fw-bold small">{{ label_location }}</label>
+                                    {{ form.location }}
+                                    {% if form.location.errors %}
+                                    <div class="text-danger small">{{ form.location.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold small">{{ label_salary }}</label>
+                                    {{ form.expected_salary }}
+                                    {% if form.expected_salary.errors %}
+                                    <div class="text-danger small">{{ form.expected_salary.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Skills -->
+                                <div class="col-12">
+                                    <label class="form-label fw-bold small d-block mb-3">{{ label_skills }}</label>
+                                    <div class="row g-3">
+                                        {% for choice in form.skills %}
+                                        <div class="col-12 col-sm-6 col-md-4">
+                                            <div
+                                                class="form-check p-3 border rounded-3 skill-card h-100 transition-all position-relative">
+                                                {{ choice.tag }}
+                                                <label class="form-check-label ms-2 stretched-link"
+                                                    for="{{ choice.id_for_label }}">
+                                                    {{ choice.choice_label }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% if form.skills.errors %}
+                                    <div class="text-danger small mt-2">{{ form.skills.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Documents -->
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label fw-bold small">{{ label_aadhaar }}</label>
+                                    {{ form.aadhaar_document }}
+                                    {% if form.aadhaar_document.errors %}
+                                    <div class="text-danger small">{{ form.aadhaar_document.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label fw-bold small">{{ label_police }}</label>
+                                    {{ form.police_verification }}
+                                    {% if form.police_verification.errors %}
+                                    <div class="text-danger small">{{ form.police_verification.errors }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="col-12 mt-5">
+                                    <button type="submit" class="btn btn-primary-soft w-100 py-3 fw-bold shadow-sm"
+                                        style="font-size: 1.1rem; border-radius: 12px;">
+                                        {{ btn_submit }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .skill-card {
+        background-color: #fff;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .skill-card:hover {
+        border-color: var(--primary-soft-blue) !important;
+        background-color: #f8fbff;
+        transform: translateY(-2px);
+    }
+
+    .form-check-input:checked+.form-check-label {
+        font-weight: 600;
+        color: var(--primary-soft-blue);
+    }
+
+    .transition-all {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .form-check-input {
+        position: relative;
+        z-index: 2;
+    }
+
+    .form-check-label {
+        position: relative;
+        z-index: 2;
+    }
+</style>
+{% endblock %}

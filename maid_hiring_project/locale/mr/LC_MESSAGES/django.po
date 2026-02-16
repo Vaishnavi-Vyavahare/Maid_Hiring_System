@@ -1,0 +1,579 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-14 23:03+0530\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\main\forms.py:7
+msgid "Cleaning"
+msgstr "साफसफाई"
+
+#: .\main\forms.py:8
+msgid "Cooking"
+msgstr "स्वयंपाक"
+
+#: .\main\forms.py:9
+msgid "Babysitting"
+msgstr "मुलांचा सांभाळ (Babysitting)"
+
+#: .\main\forms.py:10
+msgid "Elder Care"
+msgstr "वृद्धांची काळजी"
+
+#: .\main\forms.py:11
+msgid "Laundry"
+msgstr "कपडे धुणे"
+
+#: .\main\forms.py:12
+msgid "Other Household Work"
+msgstr "इतर घरगुती काम"
+
+#: .\main\forms.py:19
+msgid "Skills"
+msgstr "कौशल्ये"
+
+#: .\main\forms.py:29
+msgid "Enter your full name"
+msgstr "आपले पूर्ण नाव प्रविष्ट करा"
+
+#: .\main\forms.py:31
+msgid "Enter mobile number"
+msgstr "मोबाइल नंबर प्रविष्ट करा"
+
+#: .\main\forms.py:32
+msgid "Enter your location"
+msgstr "आपले स्थान प्रविष्ट करा"
+
+#: .\main\forms.py:33
+msgid "Enter expected monthly salary"
+msgstr "अपेक्षित मासिक पगार प्रविष्ट करा"
+
+#: .\main\forms.py:38 .\main\templates\main\register.html:13
+#: .\main\templates\main\register_maid.html:13
+msgid "Full Name"
+msgstr "पूर्ण नाव"
+
+#: .\main\forms.py:39 .\main\templates\main\admin\maid_detail.html:17
+#: .\main\templates\main\admin\user_profile.html:11
+#: .\main\templates\main\customer_maid_profile.html:64
+#: .\main\templates\main\login.html:13 .\main\templates\main\register.html:14
+msgid "Email Address"
+msgstr "ईमेल पत्ता"
+
+#: .\main\forms.py:40 .\main\templates\main\admin\maid_detail.html:16
+#: .\main\templates\main\admin\user_list.html:13
+#: .\main\templates\main\admin\user_profile.html:12
+#: .\main\templates\main\customer_maid_profile.html:47
+#: .\main\templates\main\register_maid.html:15
+msgid "Mobile Number"
+msgstr "मोबाइल नंबर"
+
+#: .\main\forms.py:41 .\main\templates\main\admin\maid_detail.html:14
+#: .\main\templates\main\admin\user_profile.html:13
+#: .\main\templates\main\maid_list.html:16
+#: .\main\templates\main\register_maid.html:16
+msgid "Location"
+msgstr "स्थान"
+
+#: .\main\forms.py:42 .\main\templates\main\admin\maid_detail.html:15
+#: .\main\templates\main\customer_maid_profile.html:37
+msgid "Expected Salary"
+msgstr "अपेक्षित पगार"
+
+#: .\main\forms.py:43 .\main\templates\main\admin\maid_detail.html:20
+msgid "Aadhaar Document"
+msgstr "आधार दस्तऐवज"
+
+#: .\main\forms.py:44 .\main\templates\main\admin\maid_detail.html:21
+msgid "Police Verification"
+msgstr "पोलीस पडताळणी"
+
+#: .\main\forms.py:61 .\main\templates\main\customer_maid_profile.html:165
+msgid "Subject"
+msgstr "विषय"
+
+#: .\main\forms.py:69 .\main\templates\main\customer_maid_profile.html:169
+msgid "Message"
+msgstr "संदेश"
+
+#: .\main\templates\main\admin\dashboard.html:5
+#: .\main\templates\main\admin\dashboard.html:11
+#: .\main\templates\main\admin\maid_detail.html:6
+#: .\main\templates\main\admin\user_list.html:5
+#: .\main\templates\main\admin\user_profile.html:6
+msgid "Admin Dashboard"
+msgstr "प्रशासक डॅशबोर्ड"
+
+#: .\main\templates\main\admin\dashboard.html:6
+#: .\main\templates\main\base.html:8 .\main\templates\main\base.html:95
+#: .\main\templates\main\base.html:159 .\main\templates\main\base.html:160
+#: .\main\templates\main\customer_maid_profile.html:5
+#: .\main\templates\main\login.html:6 .\main\templates\main\maid_list.html:6
+#: .\main\templates\main\register.html:6
+#: .\main\templates\main\register_maid.html:6
+msgid "Maid Hiring System"
+msgstr "मोलकरीण हायरिंग सिस्टम"
+
+#: .\main\templates\main\admin\dashboard.html:12
+msgid "Manage users, maids, and verifications"
+msgstr "वापरकर्ते, मोलकरीण आणि पडताळणी व्यवस्थापित करा"
+
+#: .\main\templates\main\admin\dashboard.html:13
+msgid "Total Users"
+msgstr "एकूण वापरकर्ते"
+
+#: .\main\templates\main\admin\dashboard.html:14
+msgid "All registered users"
+msgstr "सर्व नोंदणीकृत वापरकर्ते"
+
+#: .\main\templates\main\admin\dashboard.html:15
+msgid "Customers"
+msgstr "ग्राहक"
+
+#: .\main\templates\main\admin\dashboard.html:16
+msgid "Hiring for services"
+msgstr "सेवांसाठी भरती"
+
+#: .\main\templates\main\admin\dashboard.html:17
+#: .\main\templates\main\index.html:51
+msgid "Verified Maids"
+msgstr "सत्यापित मोलकरीण"
+
+#: .\main\templates\main\admin\dashboard.html:18
+msgid "Approved profiles"
+msgstr "मंजूर प्रोफाइल"
+
+#: .\main\templates\main\admin\dashboard.html:19
+msgid "Pending Approval"
+msgstr "मंजुरी प्रलंबित"
+
+#: .\main\templates\main\admin\dashboard.html:20
+msgid "Needs verification"
+msgstr "पडताळणी आवश्यक आहे"
+
+#: .\main\templates\main\admin\maid_detail.html:5
+msgid "Maid Verification"
+msgstr "मोलकरीण पडताळणी"
+
+#: .\main\templates\main\admin\maid_detail.html:11
+msgid "Pending Review"
+msgstr "पुनरावलोकन प्रलंबित"
+
+#: .\main\templates\main\admin\maid_detail.html:12
+#: .\main\templates\main\maid_list.html:21
+msgid "Verified"
+msgstr "सत्यापित"
+
+#: .\main\templates\main\admin\maid_detail.html:13
+msgid "Rejected"
+msgstr "नाकारले"
+
+#: .\main\templates\main\admin\maid_detail.html:18
+#: .\main\templates\main\customer_maid_profile.html:87
+msgid "Expertise & Skills"
+msgstr "विशेषज्ञता आणि कौशल्ये"
+
+#: .\main\templates\main\admin\maid_detail.html:19
+#, fuzzy
+#| msgid "Maid Verification"
+msgid "Verification Documents"
+msgstr "मोलकरीण पडताळणी"
+
+#: .\main\templates\main\admin\maid_detail.html:22
+msgid "View / Download"
+msgstr "पहा / डाउनलोड करा"
+
+#: .\main\templates\main\admin\maid_detail.html:23
+msgid "Approve Registration"
+msgstr "नोंदणी मंजूर करा"
+
+#: .\main\templates\main\admin\maid_detail.html:24
+msgid "Reject Registration"
+msgstr "नोंदणी नाकारा"
+
+#: .\main\templates\main\admin\maid_detail.html:25
+msgid "Back to Pending List"
+msgstr "प्रलंबित यादीवर परत जा"
+
+#: .\main\templates\main\admin\user_list.html:10
+#: .\main\templates\main\admin\user_profile.html:15
+msgid "Back to Dashboard"
+msgstr "डॅशबोर्डवर परत जा"
+
+#: .\main\templates\main\admin\user_list.html:11
+msgid "Name"
+msgstr "नाव"
+
+#: .\main\templates\main\admin\user_list.html:12
+msgid "Email"
+msgstr "ईमेल"
+
+#: .\main\templates\main\admin\user_list.html:14
+msgid "Action"
+msgstr "कृती"
+
+#: .\main\templates\main\admin\user_list.html:15
+#: .\main\templates\main\admin\user_profile.html:14
+msgid "Not Provided"
+msgstr "दिलेले नाही"
+
+#: .\main\templates\main\admin\user_list.html:16
+msgid "View"
+msgstr "पहा"
+
+#: .\main\templates\main\admin\user_list.html:17
+#: .\main\templates\main\maid_list.html:25
+msgid "View Profile"
+msgstr "प्रोफाइल पहा"
+
+#: .\main\templates\main\admin\user_list.html:18
+msgid "No users found in this category."
+msgstr "या श्रेणीमध्ये कोणतेही वापरकर्ते आढळले नाहीत."
+
+#: .\main\templates\main\admin\user_profile.html:5
+msgid "User Profile"
+msgstr "वापरकर्ता प्रोफाइल"
+
+#: .\main\templates\main\base.html:119
+msgid "Home"
+msgstr "मुखपृष्ठ"
+
+#: .\main\templates\main\base.html:123
+msgid "Welcome"
+msgstr "स्वागत"
+
+#: .\main\templates\main\base.html:126
+msgid "Logout"
+msgstr "बाहेर पडा"
+
+#: .\main\templates\main\base.html:130 .\main\templates\main\index.html:22
+#: .\main\templates\main\login.html:5 .\main\templates\main\register.html:23
+msgid "Sign In"
+msgstr "साइन इन"
+
+#: .\main\templates\main\base.html:133 .\main\templates\main\index.html:25
+#: .\main\templates\main\login.html:16 .\main\templates\main\register.html:11
+msgid "Create Account"
+msgstr "खाते तयार करा"
+
+#: .\main\templates\main\base.html:160
+msgid "All rights reserved."
+msgstr "सर्व हक्क राखीव."
+
+#: .\main\templates\main\customer_maid_profile.html:5
+msgid "Profile"
+msgstr "प्रोफाइल"
+
+#: .\main\templates\main\customer_maid_profile.html:29
+msgid "Verified Professional"
+msgstr "सत्यापित व्यावसायिक"
+
+#: .\main\templates\main\customer_maid_profile.html:41
+#: .\main\templates\main\maid_list.html:22
+msgid "month"
+msgstr "महिना"
+
+#: .\main\templates\main\customer_maid_profile.html:77
+#: .\main\templates\main\customer_maid_profile.html:175
+msgid "Send Email"
+msgstr "ईमेल पाठवा"
+
+#: .\main\templates\main\customer_maid_profile.html:102
+#, fuzzy
+#| msgid "Booking feature coming soon!"
+msgid " Booking feature coming soon!"
+msgstr "बुकिंग सुविधा लवकरच येत आहे!"
+
+#: .\main\templates\main\customer_maid_profile.html:103
+msgid "Proceed to Hire"
+msgstr "नेमण्यासाठी पुढे जा"
+
+#: .\main\templates\main\customer_maid_profile.html:109
+msgid "Back to Listings"
+msgstr "यादीवर परत जा"
+
+#: .\main\templates\main\customer_maid_profile.html:158
+msgid "Send Email to"
+msgstr "याच्यावर ईमेल पाठवा"
+
+#: .\main\templates\main\customer_maid_profile.html:174
+msgid "Close"
+msgstr "बंद करा"
+
+#: .\main\templates\main\index.html:11
+msgid "Find Trusted & Verified Maids for Your Home"
+msgstr "आपल्या घरासाठी विश्वसनीय आणि सत्यापित मोलकरीण शोधा"
+
+#: .\main\templates\main\index.html:12
+msgid ""
+"Hire reliable professionals for cleaning, cooking, baby care, and household "
+"services. Experience a cleaner, more organized life with our verified "
+"experts."
+msgstr ""
+"स्वच्छता, स्वयंपाक, बाळाची काळजी आणि घरगुती कामांसाठी विश्वसनीय व्यावसायिकांना नियुक्त "
+"करा. आमच्या सत्यापित तज्ञांसह अधिक स्वच्छ आणि व्यवस्थित जीवनाचा अनुभव घ्या."
+
+#: .\main\templates\main\index.html:15 .\main\templates\main\index.html:96
+#: .\main\templates\main\maid_list.html:5
+msgid "Hire a Maid"
+msgstr "मोलकरीण नेमा"
+
+#: .\main\templates\main\index.html:17 .\main\templates\main\index.html:98
+msgid "Register as a Maid"
+msgstr "मोलकरीण म्हणून नोंदणी करा"
+
+#: .\main\templates\main\index.html:20
+msgid "Already a member?"
+msgstr "आधीच सदस्य आहात?"
+
+#: .\main\templates\main\index.html:29
+msgid "Home Service"
+msgstr "घरगुती सेवा"
+
+#: .\main\templates\main\index.html:40
+msgid "Why Choose Us"
+msgstr "आम्हाला का निवडावे"
+
+#: .\main\templates\main\index.html:52
+msgid ""
+"Every professional undergoes a thorough background check and verification "
+"process."
+msgstr "प्रत्येक व्यावसायिकाची पार्श्वभूमी तपासणी आणि सत्यापन प्रक्रिया केली जाते."
+
+#: .\main\templates\main\index.html:61
+msgid "Secure Hiring"
+msgstr "सुरक्षित भरती"
+
+#: .\main\templates\main\index.html:62
+msgid "Safe and transparent booking system with secure payment processing."
+msgstr "सुरक्षित पेमेंट प्रक्रिया आणि पारदर्शक बुकिंग सिस्टम."
+
+#: .\main\templates\main\index.html:71
+msgid "Location-based"
+msgstr "स्थानावर आधारित"
+
+#: .\main\templates\main\index.html:72
+msgid ""
+"Find the best helpers right in your neighborhood for faster availability."
+msgstr "जलद उपलब्धतेसाठी आपल्या परिसरात सर्वोत्तम मदतनीस शोधा."
+
+#: .\main\templates\main\index.html:81
+msgid "Trusted Platform"
+msgstr "विश्वसनीय प्लॅटफॉर्म"
+
+#: .\main\templates\main\index.html:82
+msgid "Joining thousands of families who trust our quality of service."
+msgstr "हजारो कुटुंबांमध्ये सामील व्हा जे आमच्या सेवेवर विश्वास ठेवतात."
+
+#: .\main\templates\main\index.html:92
+msgid "Ready to find your perfect home helper?"
+msgstr "आपला परिपूर्ण घरगुती मदतनीस शोधण्यासाठी तयार आहात?"
+
+#: .\main\templates\main\index.html:93
+msgid "Join our community today and make your household management effortless."
+msgstr "आजच आमच्या समुदायात सामील व्हा आणि आपले घरगुती व्यवस्थापन सोपे करा."
+
+#: .\main\templates\main\login.html:11
+msgid "Welcome Back"
+msgstr "पुन्हा स्वागत आहे"
+
+#: .\main\templates\main\login.html:12
+msgid "Sign in to your account"
+msgstr "आपल्या खात्यात साइन इन करा"
+
+#: .\main\templates\main\login.html:14 .\main\templates\main\register.html:19
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: .\main\templates\main\login.html:15
+msgid "Don’t have an account?"
+msgstr "खाते नाही?"
+
+#: .\main\templates\main\maid_list.html:11
+msgid "Find Your Perfect Help"
+msgstr "आपली योग्य मदत शोधा"
+
+#: .\main\templates\main\maid_list.html:12
+msgid "Browse our verified network of skilled housemaids ready to help you."
+msgstr "आमच्या सत्यापित कुशल मोलकरणींचे नेटवर्क ब्राउझ करा."
+
+#: .\main\templates\main\maid_list.html:13
+msgid "Filters"
+msgstr "फिल्टर्स"
+
+#: .\main\templates\main\maid_list.html:14
+msgid "Skill Expertise"
+msgstr "कौशल्य"
+
+#: .\main\templates\main\maid_list.html:15
+msgid "All Skills"
+msgstr "सर्व कौशल्ये"
+
+#: .\main\templates\main\maid_list.html:17
+msgid "e.g. Mumbai"
+msgstr "उदा. मुंबई"
+
+#: .\main\templates\main\maid_list.html:18
+msgid "Salary Range (₹)"
+msgstr "पगार श्रेणी (₹)"
+
+#: .\main\templates\main\maid_list.html:19
+msgid "Apply Filters"
+msgstr "फिल्टर्स लागू करा"
+
+#: .\main\templates\main\maid_list.html:20
+msgid "Reset All"
+msgstr "सर्व रीसेट करा"
+
+#: .\main\templates\main\maid_list.html:23
+msgid "Expertise"
+msgstr "विशेषज्ञता"
+
+#: .\main\templates\main\maid_list.html:24
+msgid "Contact Support"
+msgstr "सपोर्टशी संपर्क साधा"
+
+#: .\main\templates\main\maid_list.html:26
+msgid "No Maids Match Your Filters"
+msgstr "तुमच्या फिल्टरशी कोणतीही मोलकरीण जुळत नाही"
+
+#: .\main\templates\main\maid_list.html:27
+msgid "Try adjusting your filters or search criteria."
+msgstr "तुमचे फिल्टर किंवा शोध निकष बदलून पहा."
+
+#: .\main\templates\main\maid_list.html:28
+msgid "Clear All Filters"
+msgstr "सर्व फिल्टर्स काढा"
+
+#: .\main\templates\main\maid_list.html:93
+#, python-format
+msgid ""
+"\n"
+"                    %(count)s verified professional found\n"
+"                    "
+msgid_plural ""
+"\n"
+"                    %(count)s verified professionals found\n"
+"                    "
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\main\templates\main\register.html:5
+msgid "Register"
+msgstr "नोंदणी"
+
+#: .\main\templates\main\register.html:12
+msgid "Join our community today"
+msgstr "आजच आमच्या समुदायात सामील व्हा"
+
+#: .\main\templates\main\register.html:15
+msgid "Phone Number"
+msgstr "फोन नंबर"
+
+#: .\main\templates\main\register.html:16
+msgid "Select Role"
+msgstr "भूमिका निवडा"
+
+#: .\main\templates\main\register.html:17
+msgid "Customer (Hire a Maid)"
+msgstr "ग्राहक (मोलकरीण नेमा)"
+
+#: .\main\templates\main\register.html:18
+msgid "Maid (Find Work)"
+msgstr "मोलकरीण (काम शोधा)"
+
+#: .\main\templates\main\register.html:20
+msgid "Confirm Password"
+msgstr "पासवर्ड पुष्टी करा"
+
+#: .\main\templates\main\register.html:21
+msgid "Register Now"
+msgstr "आता नोंदणी करा"
+
+#: .\main\templates\main\register.html:22
+msgid "Already have an account?"
+msgstr "आधीच खाते आहे का?"
+
+#: .\main\templates\main\register_maid.html:5
+msgid "Register as Maid"
+msgstr "मोलकरीण म्हणून नोंदणी करा"
+
+#: .\main\templates\main\register_maid.html:11
+msgid "Maid Registration Form"
+msgstr "मोलकरीण नोंदणी फॉर्म"
+
+#: .\main\templates\main\register_maid.html:12
+msgid "Fill in your details to join our network of experts"
+msgstr "आमच्या तज्ञांच्या नेटवर्कमध्ये सामील होण्यासाठी आपले तपशील भरा"
+
+#: .\main\templates\main\register_maid.html:14
+msgid "Email Address (Read-only)"
+msgstr "ईमेल पत्ता (केवळ वाचण्यासाठी)"
+
+#: .\main\templates\main\register_maid.html:17
+msgid "Expected Monthly Salary (₹)"
+msgstr "अपेक्षित मासिक पगार (₹)"
+
+#: .\main\templates\main\register_maid.html:18
+#, fuzzy
+#| msgid "Skill Expertise"
+msgid "Skills & Expertise"
+msgstr "कौशल्य"
+
+#: .\main\templates\main\register_maid.html:19
+msgid "Aadhaar Document (PDF/JPG/PNG)"
+msgstr "आधार दस्तऐवज (PDF/JPG/PNG)"
+
+#: .\main\templates\main\register_maid.html:20
+msgid "Police Verification (PDF/JPG/PNG)"
+msgstr "पोलीस पडताळणी (PDF/JPG/PNG)"
+
+#: .\main\templates\main\register_maid.html:21
+msgid "Submit Registration"
+msgstr "नोंदणी जमा करा"
+
+#: .\main\views.py:34
+msgid "You have already registered as a maid."
+msgstr "तुम्ही आधीच मोलकरीण म्हणून नोंदणी केली आहे."
+
+#: .\main\views.py:49
+msgid "Registered as Maid Successfully. Admin will verify your profile soon."
+msgstr ""
+"मोलकरीण म्हणून यशस्वीरित्या नोंदणीकृत. प्रशासक लवकरच आपल्या प्रोफाइलची पडताळणी करेल."
+
+#: .\main\views.py:152
+msgid "Passwords do not match."
+msgstr "पासवर्ड जुळत नाहीत."
+
+#: .\main\views.py:156
+msgid "Email already registered."
+msgstr "ईमेल आधीच नोंदणीकृत आहे."
+
+#: .\main\views.py:163
+msgid "Account created successfully. Please sign in."
+msgstr "खाते यशस्वीरित्या तयार केले. कृपया साइन इन करा."
+
+#: .\main\views.py:179
+msgid "Invalid email or password."
+msgstr "अवैध ईमेल किंवा पासवर्ड."
+
+#: .\main\views.py:348
+msgid "Your email has been sent successfully!"
+msgstr "तुमचा ईमेल यशस्वीश्या पाठवला गेला आहे!"
+
+#: .\main\views.py:350
+msgid "Maid profile not found."
+msgstr "मेड प्रोफाइल सापडले नाही."
+
+#~ msgid ""
+#~ "Documents of this profile are verified by our team. For safety reasons, "
+#~ "direct downloads are not available for customers."
+#~ msgstr ""
+#~ "या प्रोफाइलचे दस्तऐवज आमच्या टीमने सत्यापित केले आहेत. सुरक्षिततेच्या कारणास्तव, ही "
+#~ "कागदपत्रे ग्राहकांसाठी थेट उपलब्ध नाहीत."
+
+#~ msgid "Unverified Maids"
+#~ msgstr "असत्यापित मोलकरीण"

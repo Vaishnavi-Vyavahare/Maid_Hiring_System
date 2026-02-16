@@ -1,0 +1,126 @@
+{% extends 'main/base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Admin Dashboard" as page_title %}
+{% trans "Maid Hiring System" as site_title %}
+{{ page_title }} - {{ site_title }}
+{% endblock %}
+
+{% block content %}
+{% trans "Admin Dashboard" as header_title %}
+{% trans "Manage users, maids, and verifications" as subtitle %}
+{% trans "Total Users" as label_total %}
+{% trans "All registered users" as sub_total %}
+{% trans "Customers" as label_customers %}
+{% trans "Hiring for services" as sub_customers %}
+{% trans "Verified Maids" as label_verified %}
+{% trans "Approved profiles" as sub_verified %}
+{% trans "Pending Approval" as label_pending %}
+{% trans "Needs verification" as sub_pending %}
+
+<section class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold mb-3" style="color: var(--primary-indigo);">{{ header_title }}</h2>
+                <p class="text-muted">{{ subtitle }}</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Total Users Card -->
+            <div class="col-md-6 col-lg-3">
+                <a href="{% url 'admin_user_list' 'total' %}" class="text-decoration-none h-100">
+                    <div class="card border-0 shadow-sm h-100 p-4 transition-all hover-lift">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary-soft p-3 rounded-circle me-3">
+                                <i class="fas fa-users text-primary fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 text-dark fw-bold">{{ label_total }}</h5>
+                        </div>
+                        <h2 class="mb-0 fw-bold">{{ total_users }}</h2>
+                        <p class="text-muted small mt-2">{{ sub_total }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Customers Card -->
+            <div class="col-md-6 col-lg-3">
+                <a href="{% url 'admin_user_list' 'customers' %}" class="text-decoration-none h-100">
+                    <div class="card border-0 shadow-sm h-100 p-4 transition-all hover-lift">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success-soft p-3 rounded-circle me-3">
+                                <i class="fas fa-user-tag text-success fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 text-dark fw-bold">{{ label_customers }}</h5>
+                        </div>
+                        <h2 class="mb-0 fw-bold text-success">{{ customers_count }}</h2>
+                        <p class="text-muted small mt-2">{{ sub_customers }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Verified Maids Card -->
+            <div class="col-md-6 col-lg-3">
+                <a href="{% url 'admin_user_list' 'verified' %}" class="text-decoration-none h-100">
+                    <div class="card border-0 shadow-sm h-100 p-4 transition-all hover-lift">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info-soft p-3 rounded-circle me-3">
+                                <i class="fas fa-check-circle text-info fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 text-dark fw-bold">{{ label_verified }}</h5>
+                        </div>
+                        <h2 class="mb-0 fw-bold text-info">{{ verified_maids_count }}</h2>
+                        <p class="text-muted small mt-2">{{ sub_verified }}</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Unverified Maids Card -->
+            <div class="col-md-6 col-lg-3">
+                <a href="{% url 'admin_user_list' 'unverified' %}" class="text-decoration-none h-100">
+                    <div class="card border-0 shadow-sm h-100 p-4 transition-all hover-lift"
+                        style="border-left: 5px solid #ffc107 !important;">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-warning-soft p-3 rounded-circle me-3">
+                                <i class="fas fa-clock text-warning fa-lg"></i>
+                            </div>
+                            <h5 class="mb-0 text-dark fw-bold">{{ label_pending }}</h5>
+                        </div>
+                        <h2 class="mb-0 fw-bold text-warning">{{ unverified_maids_count }}</h2>
+                        <p class="text-muted small mt-2">{{ sub_pending }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hover-lift {
+        transition: transform 0.2s ease-in-out, shadow 0.2s ease-in-out;
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    }
+
+    .bg-primary-soft {
+        background-color: #e7f1ff;
+    }
+
+    .bg-success-soft {
+        background-color: #e6f9ed;
+    }
+
+    .bg-info-soft {
+        background-color: #e7f7fb;
+    }
+
+    .bg-warning-soft {
+        background-color: #fff9e6;
+    }
+</style>
+{% endblock %}
