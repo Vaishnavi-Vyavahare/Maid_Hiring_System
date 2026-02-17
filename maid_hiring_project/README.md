@@ -40,7 +40,44 @@ pip install django
 4. Run the server:
 
 python manage.py runserver
+
 ---
+
+---
+
+# 📸 Project Screenshots
+
+## 🏠 Home Page
+![Home Page](assets/home.png)
+
+---
+
+## 👩‍🔧 Maid Listing Page
+![Maid Listing](assets/maids.png)
+
+---
+
+## 📝 Registration Page
+![Registration](assets/registration.png)
+
+---
+
+## 🛠 Admin Dashboard
+![Admin Dashboard](assets/admin.png)
+
+---
+
+## ✅ Maid Verification
+![Maid Verification](assets/maidverification.png)
+
+---
+
+## 💬 Message / Contact Feature
+![Message](assets/message.png)
+
+---
+
+
 
 ## 👩‍💻 Developed By
 
